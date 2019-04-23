@@ -1,0 +1,119 @@
+<html>
+
+<head>
+	<title>T-to-S</title>
+	<meta charset="UTF-8" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<style>
+		body {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		main {
+			flex: 1 0 auto;
+		}
+
+		.alert {
+			padding: 20px;
+			background-color: #f44336;
+			color: white;
+			opacity: 1;
+			transition: opacity 0.6s;
+			margin-bottom: 15px;
+		}
+
+		.alert.success {
+			background-color: #4CAF50;
+		}
+
+		.alert.info {
+			background-color: #2196F3;
+		}
+
+		.alert.warning {
+			background-color: #ff9800;
+		}
+
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closebtn:hover {
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div class="alert success">
+		<span class="closebtn">&times;</span>
+		<strong id="support"></strong>
+	</div>
+
+	<br>
+	<br>
+	<h5 class="center"> Speech synthesis </h5>
+	<br>
+	<br>
+
+	<div class="center container">
+		<br>
+		<!-- <form class="col s12"> -->
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="text" class="materialize-textarea"></textarea>
+					<label for="text">Textarea</label>
+				</div>
+			</div>
+		<!-- </form> -->
+		<!-- <textarea id="text" style="width: 500px; height: 300px">Hello, how are you today ?</textarea> -->
+		<div>
+			<button class="btn waves-effect waves-light" id="play"><i class="material-icons left">play_arrow</i> Play </button>
+			<button class="btn waves-effect waves-light" id="pause"><i class="material-icons left">pause</i> Pause </button>
+			<button class="btn waves-effect waves-light" id="resume"><i class="material-icons left">play_circle_outline</i> Resume </button>
+		</div>
+	</div>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="src/index.js"></script>
+
+	<script>
+		$('#text').trigger('autoresize');
+		var close = document.getElementsByClassName("closebtn");
+		var i;
+
+		for (i = 0; i < close.length; i++) {
+			close[i].onclick = function() {
+				var div = this.parentElement;
+				div.style.opacity = "0";
+				setTimeout(function() {
+					div.style.display = "none";
+				}, 600);
+			}
+		}
+	</script>
+</body>
+
+</html>
